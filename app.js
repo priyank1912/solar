@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://Priyank1912:Priyank@0000@development.xp21op9.mongodb.net/?retryWrites=true&w=majority&appName=Development', {
     user: process.env.MONGO_USERNAME,
     pass: process.env.MONGO_PASSWORD,
     useNewUrlParser: true,
