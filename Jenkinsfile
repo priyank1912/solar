@@ -15,6 +15,11 @@ pipeline {
                 sh 'npm audit --audit-level=critical'
             }
         }
+        stage("owasp dependency check") {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --format "ALL" --project "my-project" --out .', odcInstallation: 'dependency-check'
+            }
+        }
     }
     post {
         success {
