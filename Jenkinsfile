@@ -9,18 +9,20 @@ pipeline {
                 sh 'npm install --no-audit'
             }
         }
-
-        stage('NPM Dependency audit') {
-            steps {
-                sh 'npm audit --audit-level=critical'
+        stage('scanning dependencies') {
+            parallel{
+                stage('NPM Dependency audit') {
+                    steps {
+                        sh 'npm audit --audit-level=critical'
+                    }
+                }
+                stage("owasp dependency check") {
+                    steps {
+                        dependencyCheck additionalArguments: '--scan ./ --format "ALL" --project "my-project" --out .', odcInstallation: 'dependency-check'
+                    }
+                }   
             }
         }
-        stage("owasp dependency check") {
-            steps {
-                dependencyCheck additionalArguments: '--scan ./ --format "ALL" --project "my-project" --out .', odcInstallation: 'dependency-check'
-            }
-        }
-    }
     post {
         success {
             echo 'successfull'
