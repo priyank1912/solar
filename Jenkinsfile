@@ -23,9 +23,9 @@ pipeline {
                 }   
             }
         }
-    post {
-        success {
+        post {
+            success {
             echo 'successfull'
+            }
         }
     }
-}
