@@ -23,10 +23,10 @@ pipeline {
                 }   
             }
         }
-        post {
-            success {
-            echo 'successfull'
-            }
+    }
+    post {
+        success {
+        echo 'successfull'
         }
     }
 }
