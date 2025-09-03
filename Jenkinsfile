@@ -4,12 +4,9 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('Check node version') {
+        stage('Install dependencies') {
             steps {
-                sh '''
-                node -v
-                npm -v
-                '''
+                sh 'npm install --no-audit'
             }
         }
     }
