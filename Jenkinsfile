@@ -18,7 +18,11 @@ pipeline {
                 }
                 stage("owasp dependency check") {
                     steps {
-                        dependencyCheck additionalArguments: '--scan ./ --format "ALL" --project "my-project" --out .', odcInstallation: 'dependency-check'
+                        dependencyCheck additionalArguments: '''
+                            --scan \'./\'
+                            --out \'./\'
+                            --format \'ALL\'
+                            --prettyPrint''', odcInstallation: 'OWSAP-Depcheck-10'
                     }
                 }   
             }
