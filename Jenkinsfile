@@ -22,7 +22,7 @@ pipeline {
                             --scan \'./\'
                             --out \'./\'
                             --format \'ALL\'
-                            --prettyPrint''', odcInstallation: 'OWSAP-Depcheck-10'
+                            --prettyPrint''', odcInstallation: 'Owasp'
                     }
                 }   
             }
