@@ -9,6 +9,11 @@ pipeline {
                 sh 'npm install --no-audit'
             }
         }
+        stage('Unit testing') {
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('scanning dependencies') {
             parallel{
                 stage('NPM Dependency audit') {
